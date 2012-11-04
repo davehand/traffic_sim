@@ -1,0 +1,35 @@
+<project name="LinkedQueues" default="compile">
+	
+	<target name="compile">
+		<javac srcdir="." includeantruntime="false"/>
+	</target>
+	
+	<target name="clean">
+		<delete>
+			<fileset dir="." includes="**/*.class/" defaultexcludes="no"/>
+		</delete>
+		<delete>
+			<fileset dir="." includes="**/*.*~/" defaultexcludes="no"/>
+		</delete>
+		<delete>
+			<fileset dir="." includes="**/*.txt/" defaultexcludes="no"/>
+		</delete>
+		<delete>
+			<fileset dir="." includes="**/*.jar/" defaultexcludes="no"/>
+		</delete>
+		<delete dir="META-INF"/>
+	</target>
+	
+	<target name="run" depends="compile,who">
+		<java classname="Driver" classpath="." fork="yes"/>
+	</target>
+	
+	<target name="who">
+		<echo message="David Hand - Project 3"/>
+	</target>
+	
+	<target name="jar">
+		<jar destfile="handd1.jar" basedir="." includes="**/*.java,**/*.xml"/>
+	</target>
+
+</project> 
